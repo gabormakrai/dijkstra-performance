@@ -6,9 +6,9 @@ import java.util.LinkedList;
 public class BaseDijkstra {
 	public static void createPreviousArray(int[][] neighbours, double[][] weights, int source, double[] distance, int[] previous) {
 		
-		int largestNodeId = neighbours.length + 1;
+		int largestNodeId = neighbours.length;
 		
-		for (int i = 0; i < largestNodeId + 1; ++i) {
+		for (int i = 0; i < largestNodeId; ++i) {
 			distance[i] = Double.MAX_VALUE;
 			previous[i] = -1;
 		}
@@ -16,7 +16,7 @@ public class BaseDijkstra {
 		distance[source] = 0.0;
 		
 		HashSet<Integer> verticies = new HashSet<Integer>();
-		for (int i = 0; i < largestNodeId + 1; ++i) {
+		for (int i = 0; i < largestNodeId; ++i) {
 			verticies.add(i);
 		}
 		
@@ -37,6 +37,10 @@ public class BaseDijkstra {
 			
 			verticies.remove(u);
 			// find the neighbours
+			
+			if (neighbours[u] == null) {
+				continue;
+			}
 						
 			for (int i = 0; i < neighbours[u].length; ++i) {
 				double alt = distance[u] + weights[u][i];
@@ -48,7 +52,7 @@ public class BaseDijkstra {
 		}
 	}
 	
-	public int[] shortestPath(int[] previous, int destination) {
+	public static int[] shortestPath(int[] previous, int destination) {
 		if (previous[destination] == -1) {
 			return null;
 		}
