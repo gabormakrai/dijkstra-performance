@@ -16,6 +16,8 @@ public class NeighbourArrayGraphGenerator {
 		generateSpanningTree(neighboursList, random);
 		
 		// add more random arcs
+		arcs -= size * 2;
+		addRandomArcs(arcs, neighboursList, random);
 
 		// create neighbours array
 		neighbours = createNeighboursArrat(neighboursList);
@@ -43,6 +45,9 @@ public class NeighbourArrayGraphGenerator {
 		while(nodeNumber != 0) {
 			int v = random.nextInt(nodes.length);
 			int w = random.nextInt(nodes.length);
+			if (v == w) {
+				continue;
+			}
 			if (firstIteration) {
 				firstIteration = false;
 			} else if ((nodes[v] && nodes[w]) || (!nodes[v] && !nodes[w])) {
@@ -84,6 +89,20 @@ public class NeighbourArrayGraphGenerator {
 			}
 		}
 		return weights;
+	}
+	
+	private void addRandomArcs(int arcs, LinkedList<Integer>[] neighboursList, Random random) {
+		int size = neighboursList.length;
+		for (int i = 0; i < arcs; ++i) {
+			int v = random.nextInt(size);
+			int w = random.nextInt(size);
+			
+			if (neighboursList[v].contains(w) || v == w) {
+				--i;
+			}  else {
+				neighboursList[v].add(w);
+			}
+		}
 	}
 	
 }
