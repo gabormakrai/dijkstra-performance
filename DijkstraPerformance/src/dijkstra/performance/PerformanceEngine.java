@@ -27,8 +27,8 @@ public class PerformanceEngine {
 		
 		double averageShortestPathTime = 0;
 		for (int i = 0; i < repeats; ++i) {
-			averageShortestPathTime += (graphGenerationTimes[i]-endTimes[i])/1000.0;
-			System.out.println("" + i + ". run: " + startTimes[i] + "," + graphGenerationTimes[i] + "," + endTimes[i] + "->" + (graphGenerationTimes[i]-endTimes[i])/1000.0);
+			averageShortestPathTime += (graphGenerationTimes[i]-endTimes[i])/1000000.0;
+			System.out.println("" + i + ". run: " + startTimes[i] + "," + graphGenerationTimes[i] + "," + endTimes[i] + "->" + (endTimes[i] - graphGenerationTimes[i])/1000.0);
 		}
 		averageShortestPathTime /= (double)repeats;
 		System.out.println("AverageShortestPathTime:" + averageShortestPathTime);
