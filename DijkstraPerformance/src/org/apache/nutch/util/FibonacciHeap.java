@@ -38,7 +38,7 @@ public class FibonacciHeap {
   // private node class
   private static class FibonacciHeapNode {
     private Object userObject;
-    private int priority;
+    private double priority;
 
     private FibonacciHeapNode parent;
     private FibonacciHeapNode prevSibling;
@@ -47,7 +47,7 @@ public class FibonacciHeap {
     private int degree;
     private boolean mark;
 
-    FibonacciHeapNode(Object userObject, int priority) {
+    FibonacciHeapNode(Object userObject, double priority) {
       this.userObject= userObject;
       this.priority= priority;
 
@@ -76,7 +76,7 @@ public class FibonacciHeap {
    *  Adds the Object <code>item</code>, with the supplied
    *  <code>priority</code>.
    */
-  public void add(Object item, int priority) {
+  public void add(Object item, double priority) {
     if (itemsToNodes.containsKey(item))
       throw new IllegalStateException("heap already contains item! (item= "
                                       + item + ")");
@@ -230,7 +230,7 @@ public class FibonacciHeap {
    * in the heap, or if <code>item</code> already has an equal or
    * lower priority than the supplied<code>priority</code>.
    */
-  public void decreaseKey(Object item, int priority) {
+  public void decreaseKey(Object item, double priority) {
     FibonacciHeapNode node= 
       (FibonacciHeapNode) itemsToNodes.get(item);
     if (node == null) 
