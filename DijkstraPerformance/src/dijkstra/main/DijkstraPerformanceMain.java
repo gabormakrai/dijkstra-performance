@@ -5,6 +5,7 @@ import dijkstra.performance.PerformanceScenario;
 import dijkstra.performance.scenario.RandomBaseScenario;
 import dijkstra.performance.scenario.RandomNeo4jFibonacciPriorityQueueScenario;
 import dijkstra.performance.scenario.RandomNutchFibonacciPriorityQueueScenario;
+import dijkstra.performance.scenario.RandomTeneightyFibonacciPriorityQueueScenario;
 import dijkstra.performance.scenario.RandomTreeSetPriorityQueueScenario;
 
 public class DijkstraPerformanceMain {
@@ -14,6 +15,7 @@ public class DijkstraPerformanceMain {
 		PerformanceScenario scenarioPriorityQueue = new RandomTreeSetPriorityQueueScenario(1000, 100000, 20, 42);
 		PerformanceScenario scenarioNeo4jFibonacciPriorityQueue = new RandomNeo4jFibonacciPriorityQueueScenario(1000, 100000, 20, 42);
 		PerformanceScenario scenarioNutchFibonacciPriorityQueue = new RandomNutchFibonacciPriorityQueueScenario(1000, 100000, 20, 42);
+		PerformanceScenario scenarioTeneightyFibonacciPriorityQueue = new RandomTeneightyFibonacciPriorityQueueScenario(1000, 100000, 20, 42);
 	
 		PerformanceEngine engine = new PerformanceEngine(scenarioBase);
 		engine.startMeasurement(20);
@@ -25,6 +27,10 @@ public class DijkstraPerformanceMain {
 		engine3.startMeasurement(20);
 		
 		PerformanceEngine engine4 = new PerformanceEngine(scenarioNutchFibonacciPriorityQueue);
-		engine4.startMeasurement(20);		
+		engine4.startMeasurement(20);
+		
+		PerformanceEngine engine5 = new PerformanceEngine(scenarioTeneightyFibonacciPriorityQueue);
+		engine5.startMeasurement(20);
+
 	}
 }
