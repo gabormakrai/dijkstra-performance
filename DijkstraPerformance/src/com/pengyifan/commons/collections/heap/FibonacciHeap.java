@@ -18,8 +18,7 @@ import java.util.List;
  */
 public class FibonacciHeap {
 
-  private static final double oneOverLogPhi = 1.0 / Math.log((1.0 + Math
-      .sqrt(5.0)) / 2.0);
+  private static final double oneOverLogPhi = 1.0 / Math.log((1.0 + Math.sqrt(5.0)) / 2.0);
 
   /**
    * Points to the root of a tree containing a minimum key. If the heap is
@@ -50,7 +49,7 @@ public class FibonacciHeap {
    * 
    * @throws IllegalArgumentException if k is larger than x.key value.
    */
-  public void decreaseKey(Entry x, int key) {
+  public void decreaseKey(Entry x, double key) {
 
     // Ensure that the new key is no greater than the current key of x and
     // then assign the new key to x
@@ -128,7 +127,7 @@ public class FibonacciHeap {
    * @param x node to remove from heap
    */
   public void delete(Entry x) {
-    decreaseKey(x, Integer.MIN_VALUE);
+    decreaseKey(x, Double.MIN_VALUE);
     extractMin();
   }
 
@@ -409,7 +408,7 @@ public class FibonacciHeap {
     /**
      * Key for this node
      */
-    int key;
+    double key;
 
     /**
      * Value for this node
@@ -426,7 +425,7 @@ public class FibonacciHeap {
      * 
      * @return the key corresponding to this entry
      */
-    public final int getKey() {
+    public final double getKey() {
       return key;
     }
 
@@ -439,7 +438,7 @@ public class FibonacciHeap {
       return obj;
     }
 
-    public Entry(int key, Object obj) {
+    public Entry(double key, Object obj) {
       this.key = key;
       this.obj = obj;
     }
