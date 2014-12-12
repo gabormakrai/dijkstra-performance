@@ -12,7 +12,7 @@ public class PerformanceEngine {
 		this.scenario = scenario;
 	}
 	
-	public void startMeasurement(int repeats) {
+	public void startMeasurement(int repeats, boolean printOutInnerResults) {
 		startTimes = new long[repeats];
 		graphGenerationTimes = new long[repeats];
 		endTimes = new long[repeats];
@@ -28,7 +28,9 @@ public class PerformanceEngine {
 		double averageShortestPathTime = 0;
 		for (int i = 0; i < repeats; ++i) {
 			averageShortestPathTime += (endTimes[i] - graphGenerationTimes[i])/1000000.0;
-			System.out.println("" + i + ". run: " + startTimes[i] + "," + graphGenerationTimes[i] + "," + endTimes[i] + "->" + (endTimes[i] - graphGenerationTimes[i])/1000000.0);
+			if (printOutInnerResults) {
+				System.out.println("" + i + ". run: " + startTimes[i] + "," + graphGenerationTimes[i] + "," + endTimes[i] + "->" + (endTimes[i] - graphGenerationTimes[i])/1000000.0);
+			}
 		}
 		averageShortestPathTime /= (double)repeats;
 		System.out.println("AverageShortestPathTime:" + averageShortestPathTime);
