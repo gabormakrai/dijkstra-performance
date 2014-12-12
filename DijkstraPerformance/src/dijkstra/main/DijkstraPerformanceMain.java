@@ -16,6 +16,7 @@ public class DijkstraPerformanceMain {
 		PerformanceScenario scenarioNeo4jFibonacciPriorityQueue = new RandomNeo4jFibonacciPriorityQueueScenario(1000, 100000, 20, 42);
 		PerformanceScenario scenarioNutchFibonacciPriorityQueue = new RandomNutchFibonacciPriorityQueueScenario(1000, 100000, 20, 42);
 		PerformanceScenario scenarioTeneightyFibonacciPriorityQueue = new RandomTeneightyFibonacciPriorityQueueScenario(1000, 100000, 20, 42);
+//		PerformanceScenario scenarioPengyifanFibonacciPriorityQueue = new RandomPengyifanFibonacciPriorityQueueScenario(1000, 100000, 20, 42);
 	
 		PerformanceEngine engine = new PerformanceEngine(scenarioBase);
 		engine.startMeasurement(20, false);
@@ -32,5 +33,8 @@ public class DijkstraPerformanceMain {
 		PerformanceEngine engine5 = new PerformanceEngine(scenarioTeneightyFibonacciPriorityQueue);
 		engine5.startMeasurement(20, false);
 
+//		PerformanceEngine engine6 = new PerformanceEngine(scenarioPengyifanFibonacciPriorityQueue);
+//		engine6.startMeasurement(20, false);
+		
 	}
 }
