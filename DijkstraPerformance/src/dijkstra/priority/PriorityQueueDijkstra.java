@@ -4,7 +4,7 @@ import java.util.LinkedList;
 
 public class PriorityQueueDijkstra {
 	
-	public static void createPreviousArray(int[][] neighbours, double[][] weights, int source, int[] previous, DijkstraPriorityObject[] priorityObjectArray, PriorityQueue<DijkstraPriorityObject> priorityQueue) {
+	public static void createPreviousArray(int[][] neighbours, double[][] weights, int source, int[] previous, PriorityObject[] priorityObjectArray, PriorityQueue<PriorityObject> priorityQueue) {
 		
 		for (int i = 0; i < priorityObjectArray.length; ++i) {
 			priorityObjectArray[i].priority = Double.MAX_VALUE;
@@ -21,7 +21,7 @@ public class PriorityQueueDijkstra {
 		while (priorityQueue.size() != 0) {
 			
 			// extract min
-			DijkstraPriorityObject min = priorityQueue.extractMin();
+			PriorityObject min = priorityQueue.extractMin();
 			int u = min.node;
 			
 			// find the neighbours

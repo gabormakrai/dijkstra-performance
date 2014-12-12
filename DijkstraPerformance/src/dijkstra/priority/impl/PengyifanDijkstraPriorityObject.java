@@ -2,9 +2,9 @@ package dijkstra.priority.impl;
 
 import com.pengyifan.commons.collections.heap.FibonacciHeap;
 
-import dijkstra.priority.DijkstraPriorityObject;
+import dijkstra.priority.PriorityObject;
 
-public class PengyifanDijkstraPriorityObject extends DijkstraPriorityObject {
+public class PengyifanDijkstraPriorityObject extends PriorityObject {
 	
 	public FibonacciHeap.Entry entry;
 

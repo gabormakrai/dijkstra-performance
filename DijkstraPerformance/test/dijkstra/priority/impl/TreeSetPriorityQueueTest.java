@@ -4,17 +4,17 @@ import static org.junit.Assert.*;
 
 import org.junit.Test;
 
-import dijkstra.priority.DijkstraPriorityObject;
+import dijkstra.priority.PriorityObject;
 
 public class TreeSetPriorityQueueTest {
 	
 	@Test
 	public void extractTest() {
 		
-		DijkstraPriorityObject[] array = new DijkstraPriorityObject[] {
-			new DijkstraPriorityObject(2, 12.0),
-			new DijkstraPriorityObject(1, 23.0),
-			new DijkstraPriorityObject(0, 18.0)
+		PriorityObject[] array = new PriorityObject[] {
+			new PriorityObject(2, 12.0),
+			new PriorityObject(1, 23.0),
+			new PriorityObject(0, 18.0)
 		};		
 		
 		TreeSetPriorityQueue priorityQueue = new TreeSetPriorityQueue();
@@ -22,7 +22,7 @@ public class TreeSetPriorityQueueTest {
 		priorityQueue.add(array[1]);
 		priorityQueue.add(array[2]);
 		
-		DijkstraPriorityObject min = priorityQueue.extractMin();
+		PriorityObject min = priorityQueue.extractMin();
 		assertTrue(min != null);
 		assertEquals(2, min.node);
 		assertEquals(2, priorityQueue.size());
@@ -44,10 +44,10 @@ public class TreeSetPriorityQueueTest {
 	@Test
 	public void decreaseTest() {
 		
-		DijkstraPriorityObject[] array = new DijkstraPriorityObject[] {
-			new DijkstraPriorityObject(2, 12.0),
-			new DijkstraPriorityObject(1, 23.0),
-			new DijkstraPriorityObject(0, 18.0)
+		PriorityObject[] array = new PriorityObject[] {
+			new PriorityObject(2, 12.0),
+			new PriorityObject(1, 23.0),
+			new PriorityObject(0, 18.0)
 		};		
 		
 		TreeSetPriorityQueue priorityQueue = new TreeSetPriorityQueue();
@@ -58,7 +58,7 @@ public class TreeSetPriorityQueueTest {
 		priorityQueue.decreasePriority(array[1], 5.0);
 		assertEquals(3, priorityQueue.size());
 		
-		DijkstraPriorityObject min = priorityQueue.extractMin();
+		PriorityObject min = priorityQueue.extractMin();
 		assertTrue(min != null);
 		assertEquals(1, min.node);
 		assertEquals(2, priorityQueue.size());

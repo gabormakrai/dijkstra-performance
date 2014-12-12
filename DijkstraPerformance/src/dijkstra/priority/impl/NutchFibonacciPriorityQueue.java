@@ -2,26 +2,26 @@ package dijkstra.priority.impl;
 
 import org.apache.nutch.util.FibonacciHeap;
 
-import dijkstra.priority.DijkstraPriorityObject;
+import dijkstra.priority.PriorityObject;
 
-public class NutchFibonacciPriorityQueue implements dijkstra.priority.PriorityQueue<DijkstraPriorityObject> {
+public class NutchFibonacciPriorityQueue implements dijkstra.priority.PriorityQueue<PriorityObject> {
 	
 	FibonacciHeap heap = new FibonacciHeap();
 	
 	@Override
-	public void add(DijkstraPriorityObject item) {
+	public void add(PriorityObject item) {
 		heap.add(item, item.priority);
 	}
 
 	@Override
-	public void decreasePriority(DijkstraPriorityObject item, double priority) {
+	public void decreasePriority(PriorityObject item, double priority) {
 		item.priority = priority;
 		heap.decreaseKey(item, priority);
 	}
 
 	@Override
-	public DijkstraPriorityObject extractMin() {
-		return (DijkstraPriorityObject) heap.popMin();
+	public PriorityObject extractMin() {
+		return (PriorityObject) heap.popMin();
 	}
 
 	@Override

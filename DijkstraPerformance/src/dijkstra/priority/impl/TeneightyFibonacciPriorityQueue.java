@@ -3,26 +3,26 @@ package dijkstra.priority.impl;
 import org.teneighty.heap.FibonacciHeap;
 import org.teneighty.heap.Heap.Entry;
 
-import dijkstra.priority.DijkstraPriorityObject;
+import dijkstra.priority.PriorityObject;
 
-public class TeneightyFibonacciPriorityQueue implements dijkstra.priority.PriorityQueue<DijkstraPriorityObject> {
+public class TeneightyFibonacciPriorityQueue implements dijkstra.priority.PriorityQueue<PriorityObject> {
 
 	FibonacciHeap<Double, TeneightyDijkstraPriorityObject> heap = new FibonacciHeap<>();
 
 	@Override
-	public void add(DijkstraPriorityObject item) {
+	public void add(PriorityObject item) {
 		Entry<Double, TeneightyDijkstraPriorityObject> entry = heap.insert(item.priority, (TeneightyDijkstraPriorityObject)item);
 		((TeneightyDijkstraPriorityObject)item).entry = entry;
 	}
 
 	@Override
-	public void decreasePriority(DijkstraPriorityObject item, double priority) {
+	public void decreasePriority(PriorityObject item, double priority) {
 		item.priority = priority;
 		heap.decreaseKey(((TeneightyDijkstraPriorityObject)item).entry, priority);
 	}
 
 	@Override
-	public DijkstraPriorityObject extractMin() {
+	public PriorityObject extractMin() {
 		return heap.extractMinimum().getValue();
 	}
 

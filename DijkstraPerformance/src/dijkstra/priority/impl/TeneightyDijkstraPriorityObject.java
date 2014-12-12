@@ -2,9 +2,9 @@ package dijkstra.priority.impl;
 
 import org.teneighty.heap.Heap.Entry;
 
-import dijkstra.priority.DijkstraPriorityObject;
+import dijkstra.priority.PriorityObject;
 
-public class TeneightyDijkstraPriorityObject extends DijkstraPriorityObject {
+public class TeneightyDijkstraPriorityObject extends PriorityObject {
 	
 	public Entry<Double, TeneightyDijkstraPriorityObject> entry;
 

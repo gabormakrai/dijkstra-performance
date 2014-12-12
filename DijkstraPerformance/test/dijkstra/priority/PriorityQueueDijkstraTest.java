@@ -26,9 +26,9 @@ public class PriorityQueueDijkstraTest {
 			
 		int[] previous = new int[4];
 		
-		DijkstraPriorityObject[] array = new DijkstraPriorityObject[4];
+		PriorityObject[] array = new PriorityObject[4];
 		for (int i = 0; i < 4; ++i) {
-			array[i] = new DijkstraPriorityObject(i, 1.0);
+			array[i] = new PriorityObject(i, 1.0);
 		}
 		TreeSetPriorityQueue priorityQueue = new TreeSetPriorityQueue();
 		

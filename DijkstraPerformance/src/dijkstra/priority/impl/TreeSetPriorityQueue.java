@@ -2,26 +2,26 @@ package dijkstra.priority.impl;
 
 import java.util.TreeSet;
 
-import dijkstra.priority.DijkstraPriorityObject;
+import dijkstra.priority.PriorityObject;
 
-public class TreeSetPriorityQueue implements dijkstra.priority.PriorityQueue<DijkstraPriorityObject> {
+public class TreeSetPriorityQueue implements dijkstra.priority.PriorityQueue<PriorityObject> {
 	
-	TreeSet<DijkstraPriorityObject> tree = new TreeSet<DijkstraPriorityObject>();
+	TreeSet<PriorityObject> tree = new TreeSet<PriorityObject>();
 
 	@Override
-	public void add(DijkstraPriorityObject item) {
+	public void add(PriorityObject item) {
 		tree.add(item);
 	}
 
 	@Override
-	public void decreasePriority(DijkstraPriorityObject item, double priority) {
+	public void decreasePriority(PriorityObject item, double priority) {
 		tree.remove(item);
 		item.priority = priority;
 		tree.add(item);
 	}
 
 	@Override
-	public DijkstraPriorityObject extractMin() {
+	public PriorityObject extractMin() {
 		return tree.pollFirst();
 	}
 

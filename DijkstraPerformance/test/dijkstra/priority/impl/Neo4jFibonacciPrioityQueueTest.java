@@ -5,7 +5,7 @@ import static org.junit.Assert.assertTrue;
 
 import org.junit.Test;
 
-import dijkstra.priority.DijkstraPriorityObject;
+import dijkstra.priority.PriorityObject;
 
 public class Neo4jFibonacciPrioityQueueTest {
 	@Test
@@ -22,7 +22,7 @@ public class Neo4jFibonacciPrioityQueueTest {
 		priorityQueue.add(array[1]);
 		priorityQueue.add(array[2]);
 		
-		DijkstraPriorityObject min = priorityQueue.extractMin();
+		PriorityObject min = priorityQueue.extractMin();
 		assertTrue(min != null);
 		assertEquals(2, min.node);
 		assertEquals(2, priorityQueue.size());
@@ -58,7 +58,7 @@ public class Neo4jFibonacciPrioityQueueTest {
 		priorityQueue.decreasePriority(array[1], 5.0);
 		assertEquals(3, priorityQueue.size());
 		
-		DijkstraPriorityObject min = priorityQueue.extractMin();
+		PriorityObject min = priorityQueue.extractMin();
 		assertTrue(min != null);
 		assertEquals(1, min.node);
 		assertEquals(2, priorityQueue.size());

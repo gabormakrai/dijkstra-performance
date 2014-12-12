@@ -6,14 +6,14 @@ import java.util.Arrays;
 
 import org.junit.Test;
 
-public class DijkstraPriorityObjectTest {
+public class PriorityObjectTest {
 
 	@Test
 	public void test() {
-		DijkstraPriorityObject[] array = new DijkstraPriorityObject[] {
-			new DijkstraPriorityObject(0, 12.0),
-			new DijkstraPriorityObject(1, 23.0),
-			new DijkstraPriorityObject(2, 18.0)
+		PriorityObject[] array = new PriorityObject[] {
+			new PriorityObject(0, 12.0),
+			new PriorityObject(1, 23.0),
+			new PriorityObject(2, 18.0)
 		};
 		
 		Arrays.sort(array);

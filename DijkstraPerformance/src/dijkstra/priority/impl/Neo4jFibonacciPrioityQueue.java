@@ -1,41 +1,42 @@
 package dijkstra.priority.impl;
 
 import java.util.Comparator;
+
 import org.neo4j.graphalgo.impl.util.FibonacciHeap;
 
-import dijkstra.priority.DijkstraPriorityObject;
+import dijkstra.priority.PriorityObject;
 
-public class Neo4jFibonacciPrioityQueue implements dijkstra.priority.PriorityQueue<DijkstraPriorityObject> {
+public class Neo4jFibonacciPrioityQueue implements dijkstra.priority.PriorityQueue<PriorityObject> {
 	
-	Comparator<DijkstraPriorityObject> dijkstraPriorityObjectComparator = new Comparator<DijkstraPriorityObject>() {
+	Comparator<PriorityObject> priorityObjectComparator = new Comparator<PriorityObject>() {
 		@Override
-		public int compare(DijkstraPriorityObject o1, DijkstraPriorityObject o2) {
+		public int compare(PriorityObject o1, PriorityObject o2) {
 			return o1.compareTo(o2);
 		}
 	};
 	
-	FibonacciHeap<DijkstraPriorityObject> heap = new FibonacciHeap<DijkstraPriorityObject>(dijkstraPriorityObjectComparator);
+	FibonacciHeap<PriorityObject> heap = new FibonacciHeap<PriorityObject>(priorityObjectComparator);
 
 	@Override
-	public void add(DijkstraPriorityObject item) {
-		FibonacciHeap<DijkstraPriorityObject>.FibonacciHeapNode node = heap.insert(item);
+	public void add(PriorityObject item) {
+		FibonacciHeap<PriorityObject>.FibonacciHeapNode node = heap.insert(item);
 		((Neo4jDijkstraPriorityObject)item).node = node;
 	}
 
 	@Override
-	public void decreasePriority(DijkstraPriorityObject item, double priority) {
+	public void decreasePriority(PriorityObject item, double priority) {
 		item.priority = priority;
 		heap.decreaseKey(((Neo4jDijkstraPriorityObject)item).node, item);
 	}
 
 	@Override
-	public DijkstraPriorityObject extractMin() {
+	public PriorityObject extractMin() {
 		return heap.extractMin();
 	}
 
 	@Override
 	public void clear() {
-		heap = new FibonacciHeap<DijkstraPriorityObject>(dijkstraPriorityObjectComparator);
+		heap = new FibonacciHeap<PriorityObject>(priorityObjectComparator);
 	}
 
 	@Override

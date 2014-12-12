@@ -4,7 +4,7 @@ import java.util.Random;
 
 import dijkstra.graph.NeighbourArrayGraphGenerator;
 import dijkstra.performance.PerformanceScenario;
-import dijkstra.priority.DijkstraPriorityObject;
+import dijkstra.priority.PriorityObject;
 import dijkstra.priority.PriorityQueueDijkstra;
 import dijkstra.priority.impl.NutchFibonacciPriorityQueue;
 
@@ -13,7 +13,7 @@ public class RandomNutchFibonacciPriorityQueueScenario implements PerformanceSce
 	NeighbourArrayGraphGenerator generator = new NeighbourArrayGraphGenerator();
 	
 	int[] previous;
-	DijkstraPriorityObject[] priorityObjectArray;
+	PriorityObject[] priorityObjectArray;
 	NutchFibonacciPriorityQueue priorityQueue;
 	Random random;
 	
@@ -44,9 +44,9 @@ public class RandomNutchFibonacciPriorityQueueScenario implements PerformanceSce
 		generator.generateRandomGraph(size, arcs, random);
 		random = new Random(randomSeed);
 		priorityQueue = new NutchFibonacciPriorityQueue();
-		priorityObjectArray = new DijkstraPriorityObject[size];
+		priorityObjectArray = new PriorityObject[size];
 		for (int i = 0; i < size; ++i) {
-			priorityObjectArray[i] = new DijkstraPriorityObject(i, 0.0);
+			priorityObjectArray[i] = new PriorityObject(i, 0.0);
 		}
 	}
 }
