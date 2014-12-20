@@ -11,15 +11,16 @@ import dijkstra.performance.scenario.RandomTreeSetPriorityQueueScenario;
 public class DijkstraPerformanceMain {
 	public static void main(String[] args) {
 		
-		int moreArcs = 400000;
+		int size = 1000;
+		double p = 0.0001;
 		
-		PerformanceScenario scenarioBase = new RandomBaseScenario(1000, moreArcs, 20, 42);
-		PerformanceScenario scenarioPriorityQueue = new RandomTreeSetPriorityQueueScenario(1000, moreArcs, 20, 42);
-		PerformanceScenario scenarioNeo4jFibonacciPriorityQueue = new RandomNeo4jFibonacciPriorityQueueScenario(1000, moreArcs, 20, 42);
-		PerformanceScenario scenarioNutchFibonacciPriorityQueue = new RandomNutchFibonacciPriorityQueueScenario(1000, moreArcs, 20, 42);
-		PerformanceScenario scenarioTeneightyFibonacciPriorityQueue = new RandomTeneightyFibonacciPriorityQueueScenario(1000, moreArcs, 20, 42);
-//		PerformanceScenario scenarioPengyifanFibonacciPriorityQueue = new RandomPengyifanFibonacciPriorityQueueScenario(1000, moreArcs, 20, 42);
-//		PerformanceScenario scenarioGrowingWithTheWebFibonacciPriorityQueue = new RandomGrowingWithTheWebFibonacciPriorityQueueScenario(1000, moreArcs, 20, 42);
+		PerformanceScenario scenarioBase = new RandomBaseScenario(size, p, 20, 42);
+		PerformanceScenario scenarioPriorityQueue = new RandomTreeSetPriorityQueueScenario(size, p, 20, 42);
+		PerformanceScenario scenarioNeo4jFibonacciPriorityQueue = new RandomNeo4jFibonacciPriorityQueueScenario(size, p, 20, 42);
+		PerformanceScenario scenarioNutchFibonacciPriorityQueue = new RandomNutchFibonacciPriorityQueueScenario(size, p, 20, 42);
+		PerformanceScenario scenarioTeneightyFibonacciPriorityQueue = new RandomTeneightyFibonacciPriorityQueueScenario(size, p, 20, 42);
+//		PerformanceScenario scenarioPengyifanFibonacciPriorityQueue = new RandomPengyifanFibonacciPriorityQueueScenario(size, p, 20, 42);
+//		PerformanceScenario scenarioGrowingWithTheWebFibonacciPriorityQueue = new RandomGrowingWithTheWebFibonacciPriorityQueueScenario(size, p, 20, 42);
 	
 		PerformanceEngine engine = new PerformanceEngine(scenarioBase);
 		engine.startMeasurement(20, false);

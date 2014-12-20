@@ -16,12 +16,12 @@ public class RandomBaseScenario implements PerformanceScenario {
 	
 	int randomSeed;
 	int size;
-	int arcs;
+	double p;
 	int previosArrayBuilds;
 	
-	public RandomBaseScenario(int size, int arcs, int previousArrayBuilds, int randomSeed) {
+	public RandomBaseScenario(int size, double p, int previousArrayBuilds, int randomSeed) {
 		this.size = size;
-		this.arcs = arcs;
+		this.p = p;
 		this.previosArrayBuilds = previousArrayBuilds;
 		this.randomSeed = randomSeed;
 	}
@@ -39,7 +39,7 @@ public class RandomBaseScenario implements PerformanceScenario {
 		random = new Random(randomSeed);
 		distance = new double[size];
 		previous = new int[size];
-		generator.generateRandomGraph(size, 0, random);
+		generator.generateRandomGraph(size, p, random);
 		random = new Random(randomSeed);
 	}
 }

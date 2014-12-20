@@ -19,12 +19,12 @@ public class RandomNutchFibonacciPriorityQueueScenario implements PerformanceSce
 	
 	int randomSeed;
 	int size;
-	int arcs;
+	double p;
 	int previosArrayBuilds;
 	
-	public RandomNutchFibonacciPriorityQueueScenario(int size, int arcs, int previousArrayBuilds, int randomSeed) {
+	public RandomNutchFibonacciPriorityQueueScenario(int size, double p, int previousArrayBuilds, int randomSeed) {
 		this.size = size;
-		this.arcs = arcs;
+		this.p = p;
 		this.previosArrayBuilds = previousArrayBuilds;
 		this.randomSeed = randomSeed;
 	}
@@ -41,7 +41,7 @@ public class RandomNutchFibonacciPriorityQueueScenario implements PerformanceSce
 	public void generateGraph() {
 		random = new Random(randomSeed);
 		previous = new int[size];
-		generator.generateRandomGraph(size, arcs, random);
+		generator.generateRandomGraph(size, p, random);
 		random = new Random(randomSeed);
 		priorityQueue = new NutchFibonacciPriorityQueue();
 		priorityObjectArray = new PriorityObject[size];

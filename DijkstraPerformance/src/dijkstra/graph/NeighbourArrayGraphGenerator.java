@@ -8,7 +8,7 @@ public class NeighbourArrayGraphGenerator {
 	public int[][] neighbours;
 	public double[][] weights;
 	
-	public void generateRandomGraph(int size, int arcs, Random random) {
+	public void generateRandomGraph(int size, double p, Random random) {
 		
 		LinkedList<Integer>[] neighboursList = generateList(size);
 
@@ -16,7 +16,7 @@ public class NeighbourArrayGraphGenerator {
 		generateSpanningTree(neighboursList, random);
 		
 		// add more random arcs
-		arcs -= size * 2;
+		int arcs = (int)Math.round(size * size * p) - (size - 1) * 2; 
 		addRandomArcs(arcs, neighboursList, random);
 
 		// create neighbours array
