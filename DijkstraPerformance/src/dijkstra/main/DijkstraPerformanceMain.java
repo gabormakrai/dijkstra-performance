@@ -19,28 +19,21 @@ public class DijkstraPerformanceMain {
 		PerformanceScenario scenarioNeo4jFibonacciPriorityQueue = new RandomNeo4jFibonacciPriorityQueueScenario(size, p, 20, 42);
 		PerformanceScenario scenarioNutchFibonacciPriorityQueue = new RandomNutchFibonacciPriorityQueueScenario(size, p, 20, 42);
 		PerformanceScenario scenarioTeneightyFibonacciPriorityQueue = new RandomTeneightyFibonacciPriorityQueueScenario(size, p, 20, 42);
-//		PerformanceScenario scenarioPengyifanFibonacciPriorityQueue = new RandomPengyifanFibonacciPriorityQueueScenario(size, p, 20, 42);
-//		PerformanceScenario scenarioGrowingWithTheWebFibonacciPriorityQueue = new RandomGrowingWithTheWebFibonacciPriorityQueueScenario(size, p, 20, 42);
 	
 		PerformanceEngine engine = new PerformanceEngine(scenarioBase);
-		engine.startMeasurement(20, false);
+		engine.measurement(20, false, false, 3, 3);
 		
 		PerformanceEngine engine2 = new PerformanceEngine(scenarioPriorityQueue);
-		engine2.startMeasurement(20, false);
+		engine2.measurement(20, true, true, 3, 3);
 		
 		PerformanceEngine engine3 = new PerformanceEngine(scenarioNeo4jFibonacciPriorityQueue);
-		engine3.startMeasurement(20, false);
+		engine3.measurement(20, false, false, 3, 3);
 		
 		PerformanceEngine engine4 = new PerformanceEngine(scenarioNutchFibonacciPriorityQueue);
-		engine4.startMeasurement(20, false);
+		engine4.measurement(20, false, false, 3, 3);
 		
 		PerformanceEngine engine5 = new PerformanceEngine(scenarioTeneightyFibonacciPriorityQueue);
-		engine5.startMeasurement(20, false);
+		engine5.measurement(20, false, false, 3, 3);
 
-//		PerformanceEngine engine6 = new PerformanceEngine(scenarioPengyifanFibonacciPriorityQueue);
-//		engine6.startMeasurement(20, false);
-		
-//		PerformanceEngine engine7 = new PerformanceEngine(scenarioGrowingWithTheWebFibonacciPriorityQueue);
-//		engine7.startMeasurement(20, false);
 	}
 }

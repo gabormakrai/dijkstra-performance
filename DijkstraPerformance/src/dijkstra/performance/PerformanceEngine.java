@@ -1,5 +1,7 @@
 package dijkstra.performance;
 
+import java.util.Arrays;
+
 public class PerformanceEngine {
 	
 	private final PerformanceScenario scenario;
@@ -12,7 +14,7 @@ public class PerformanceEngine {
 		this.scenario = scenario;
 	}
 	
-	public void startMeasurement(int repeats, boolean printOutInnerResults) {
+	public double measurement(int repeats, boolean printAverageTimes, boolean printOutInnerResults, int skipLow, int skipHigh) {
 		startTimes = new long[repeats];
 		graphGenerationTimes = new long[repeats];
 		endTimes = new long[repeats];
@@ -25,14 +27,32 @@ public class PerformanceEngine {
 			endTimes[i] = System.nanoTime();
 		}
 		
-		double averageShortestPathTime = 0;
+		double[] times = new double[repeats];
+		
+		double averageShortestPathTime = 0.0;
 		for (int i = 0; i < repeats; ++i) {
-			averageShortestPathTime += (endTimes[i] - graphGenerationTimes[i])/1000000.0;
+			double time = (endTimes[i] - graphGenerationTimes[i])/1000000.0;
+			averageShortestPathTime += time;
+			times[i] = time;
 			if (printOutInnerResults) {
 				System.out.println("" + i + ". run: " + startTimes[i] + "," + graphGenerationTimes[i] + "," + endTimes[i] + "->" + (endTimes[i] - graphGenerationTimes[i])/1000000.0);
 			}
 		}
 		averageShortestPathTime /= (double)repeats;
-		System.out.println("AverageShortestPathTime:" + averageShortestPathTime);
+		
+		Arrays.sort(times);
+		
+		double averageShortestPathWithoutExrtremes = 0.0;
+		for (int i = skipLow; i < repeats - skipHigh; ++i) {
+			averageShortestPathWithoutExrtremes += times[i];
+		}
+		averageShortestPathWithoutExrtremes /= (double)(repeats - skipHigh - skipLow);
+
+		if (printAverageTimes) {
+			System.out.println("AverageShortestPathTime: " + averageShortestPathTime);
+			System.out.println("AverageShortestPathTimeWithoutExtremes: " + averageShortestPathWithoutExrtremes);
+		}
+		
+		return averageShortestPathWithoutExrtremes;
 	}
 }
