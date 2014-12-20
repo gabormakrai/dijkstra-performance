@@ -1,6 +1,6 @@
 package dijkstra.graph;
 
-import java.util.LinkedList;
+import java.util.HashSet;
 import java.util.Random;
 
 public class NeighbourArrayGraphGenerator {
@@ -10,7 +10,7 @@ public class NeighbourArrayGraphGenerator {
 	
 	public void generateRandomGraph(int size, double p, Random random) {
 		
-		LinkedList<Integer>[] neighboursList = generateList(size);
+		HashSet<Integer>[] neighboursList = generateList(size);
 
 		// create random spanning tree
 		generateSpanningTree(neighboursList, random);
@@ -27,15 +27,15 @@ public class NeighbourArrayGraphGenerator {
 	}
 	
 	@SuppressWarnings("unchecked")
-	private LinkedList<Integer>[] generateList(int size) {
-		LinkedList<Integer>[] neighboursList = new LinkedList[size];
+	private HashSet<Integer>[] generateList(int size) {
+		HashSet<Integer>[] neighboursList = new HashSet[size];
 		for (int i = 0; i < size; ++i) {
-			neighboursList[i] = new LinkedList<Integer>();
+			neighboursList[i] = new HashSet<Integer>();
 		}
 		return neighboursList;
 	}
 	
-	private void generateSpanningTree(LinkedList<Integer>[] neighboursList, Random random) {
+	private void generateSpanningTree(HashSet<Integer>[] neighboursList, Random random) {
 		boolean[] nodes = new boolean[neighboursList.length];
 		for (int i = 0; i < nodes.length; ++i) {
 			nodes[i] = false;
@@ -66,12 +66,14 @@ public class NeighbourArrayGraphGenerator {
 		}
 	}
 	
-	private int[][] createNeighboursArrat(LinkedList<Integer>[] neighboursList) {
+	private int[][] createNeighboursArrat(HashSet<Integer>[] neighboursList) {
 		int[][] neighbours = new int[neighboursList.length][];
 		for (int i = 0; i < neighbours.length; ++i) {
 			neighbours[i] = new int[neighboursList[i].size()];
-			for (int j = 0; j < neighbours[i].length; ++j) {
-				neighbours[i][j] = neighboursList[i].get(j);
+			int j = 0;
+			for (Integer neighbour : neighboursList[i]) {
+				neighbours[i][j] = neighbour;
+				++j;
 			}
 		}
 		return neighbours;
@@ -91,7 +93,7 @@ public class NeighbourArrayGraphGenerator {
 		return weights;
 	}
 	
-	private void addRandomArcs(int arcs, LinkedList<Integer>[] neighboursList, Random random) {
+	private void addRandomArcs(int arcs, HashSet<Integer>[] neighboursList, Random random) {
 		int size = neighboursList.length;
 		for (int i = 0; i < arcs; ++i) {
 			int v = random.nextInt(size);
