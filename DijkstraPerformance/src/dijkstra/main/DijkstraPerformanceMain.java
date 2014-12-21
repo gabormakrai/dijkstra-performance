@@ -10,9 +10,33 @@ import dijkstra.performance.scenario.RandomTreeSetPriorityQueueScenario;
 
 public class DijkstraPerformanceMain {
 	public static void main(String[] args) {
+		new DijkstraPerformanceMain().run();
+	}
+	
+	private int calculateArcNumber(int size, double p) {
+		return Math.max((int)Math.round(size * size * p) - (size - 1) * 2, (size - 1) * 2);
+	}
+	
+	private void run() {
+		double[][] results = new double[199][];
+		for (int i = 0; i < 199; ++i) {
+			results[i] = parameterizedMeasurement(10 + 10 * i, 0.1);
+		}
+		for (int i = 0; i < 199; ++i) {
+			if (results[i] == null) {
+				continue;
+			}
+			for (int j = 0; j < results[i].length; ++j) {
+				System.out.print(results[i][j]);
+				System.out.print(",");
+			}
+			System.out.println();
+		}
+	}
+	
+	private double[] parameterizedMeasurement(int size, double p) {
 		
-		int size = 1000;
-		double p = 0.0001;
+		System.out.println("Size: " + size + ", p: " + p + ", #arcs: " + calculateArcNumber(size, p));
 		
 		PerformanceScenario scenarioBase = new RandomBaseScenario(size, p, 20, 42);
 		PerformanceScenario scenarioPriorityQueue = new RandomTreeSetPriorityQueueScenario(size, p, 20, 42);
@@ -21,19 +45,20 @@ public class DijkstraPerformanceMain {
 		PerformanceScenario scenarioTeneightyFibonacciPriorityQueue = new RandomTeneightyFibonacciPriorityQueueScenario(size, p, 20, 42);
 	
 		PerformanceEngine engine = new PerformanceEngine(scenarioBase);
-		engine.measurement(20, false, false, 3, 3);
+		double m0 = engine.measurement(20, true, false, 3, 3);
 		
 		PerformanceEngine engine2 = new PerformanceEngine(scenarioPriorityQueue);
-		engine2.measurement(20, true, true, 3, 3);
+		double m1 = engine2.measurement(20, true, false, 3, 3);
 		
 		PerformanceEngine engine3 = new PerformanceEngine(scenarioNeo4jFibonacciPriorityQueue);
-		engine3.measurement(20, false, false, 3, 3);
+		double m2 = engine3.measurement(20, true, false, 3, 3);
 		
 		PerformanceEngine engine4 = new PerformanceEngine(scenarioNutchFibonacciPriorityQueue);
-		engine4.measurement(20, false, false, 3, 3);
+		double m3 = engine4.measurement(20, true, false, 3, 3);
 		
 		PerformanceEngine engine5 = new PerformanceEngine(scenarioTeneightyFibonacciPriorityQueue);
-		engine5.measurement(20, false, false, 3, 3);
-
+		double m4 = engine5.measurement(20, true, false, 3, 3);
+		
+		return new double[] { size, p, calculateArcNumber(size, p), m0, m1, m2, m3, m4 };
 	}
 }
