@@ -1,4 +1,3 @@
-dijkstra-performance
-====================
+Framework for testing Dijkstra's algorithm
+===============================
 
-Framework for testing Dijkstra algorithm
