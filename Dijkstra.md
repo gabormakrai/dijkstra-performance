@@ -1,3 +1,5 @@
+Dijkstra's shortest path algorithm is a single source shortest path algorithm. It is calculating all the shortest path from single source point/vertex/node. The algorithm itself is creating a shortest path spanning tree which is always stored in a vector, called the previous vector. This vector helps us to create the actual shortest path from the origin to the target by stepping back on this vector. For more details, see CLRS 24.3.
+
 All the different versions of Dijkstra's algorithm differs in the way they are creating the previous vector. The first naive implementation's pseudo code is the following:
 
 ```
@@ -63,5 +65,4 @@ function Dijkstra(Graph, source):
   return previous[]
 end function
 ```
-
 
