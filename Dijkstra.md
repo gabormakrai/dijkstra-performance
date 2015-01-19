@@ -1,6 +1,6 @@
 Dijkstra's shortest path algorithm is a single source shortest path algorithm. It is calculating all the shortest path from single source point/vertex/node. The algorithm itself is creating a shortest path spanning tree which is always stored in a vector, called the previous vector. This vector helps us to create the actual shortest path from the origin to the target by stepping back on this vector. For more details, see CLRS 24.3.
 
-All the different versions of Dijkstra's algorithm differs in the way they are creating the previous vector. The first naive implementation's pseudo code is the following:
+All the different versions of Dijkstra's algorithm differs in the way they are creating the previous vector. The first naive implementation's pseudo code is the following: (I have used here the pseudocode from [Wikipedia](http://en.wikipedia.org/wiki/Dijkstra%27s_algorithm), because it is easy to understand)
 
 ```
 function Dijkstra(Graph, source):
@@ -33,7 +33,7 @@ function Dijkstra(Graph, source):
 end function
 ```
 
-This is going to be my first, native implementation of the Dijkstra's algorithm where I am using a simple full scan search for finding the the closest vertex in the distance vector. This comes with O(n) time complexity so the overall time complexity is O(|E| + |V|<sup>2</sup>). It is clear that finding the closest vertex/node can be achieved by maintaining an advanced data structure to reduce the search time. Prioirty Queues can help in this, where the queue can be implemented as a binary heap reducing time complexity to O(|E| + |V|log<sup>2</sup>|V|) or a more advanced data structure developed specially for this algorithm, the Fibonacci heap where the time complexity can be reduced to O(|E| + |V|log|V|). The code for calculating the previous vector in general is the following:
+This is going to be my first, native implementation of the Dijkstra's algorithm where I am using a simple full scan search for finding the the closest vertex in the distance vector. This comes with O(n) time complexity so the overall time complexity is O(|E| + |V|<sup>2</sup>). It is clear that finding the closest vertex/node can be achieved by maintaining an advanced data structure to reduce the search time. Prioirty Queues can help in this, where the queue can be implemented as a binary heap reducing time complexity to O((|E|+|V|)log|V|) or a more advanced data structure developed specially for this algorithm, the Fibonacci heap where the time complexity can be reduced to O(|E| + |V|log|V|). The code for calculating the previous vector in general is the following:
 
 ```
 function Dijkstra(Graph, source):
@@ -65,4 +65,15 @@ function Dijkstra(Graph, source):
   return previous[]
 end function
 ```
+
+Using Fibonacci heap for the Prioirty Queue can be decrease the running time, because it has θ(1) amortized cost on Decrease key and insert operations compared to the θ(lgn) Decrease key operation of binary heap. The following table is showing all the necessary operations for the Priority Queue implementation of both heap (CLRS 19.1):
+
+Procedure | Binary heap | Fibonacci heap
+------------ | ------------- | -------------
+MAKE-HEAP | θ(1) | θ(1)
+INSERT | θ(lgn) | θ(1)
+MINIMUM | θ(1) | θ(1)
+EXTRACT-MIN | θ(lgn) | O(lgn)
+DECREASE-KEY | θ(lgn) | θ(1)
+DELETE | θ(lgn) | O(lgn)
 
