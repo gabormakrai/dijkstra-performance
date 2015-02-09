@@ -18,12 +18,12 @@ public class RandomPengyifanFibonacciPriorityQueueScenario implements Performanc
 	Random random;
 	
 	int size;
-	int arcs;
+	double p;
 	int previosArrayBuilds;
 	
-	public RandomPengyifanFibonacciPriorityQueueScenario(int size, int arcs, int previousArrayBuilds, Random random) {
+	public RandomPengyifanFibonacciPriorityQueueScenario(int size, double p, int previousArrayBuilds, Random random) {
 		this.size = size;
-		this.arcs = arcs;
+		this.p = p;
 		this.previosArrayBuilds = previousArrayBuilds;
 		this.random = random;
 	}
@@ -39,7 +39,7 @@ public class RandomPengyifanFibonacciPriorityQueueScenario implements Performanc
 	@Override
 	public void generateGraph() {
 		previous = new int[size];
-		generator.generateRandomGraph(size, arcs, random);
+		generator.generateRandomGraph(size, p, random);
 		priorityQueue = new PengyifanFibonacciPriorityQueue();
 		priorityObjectArray = new PengyifanDijkstraPriorityObject[size];
 		for (int i = 0; i < size; ++i) {
@@ -52,7 +52,7 @@ public class RandomPengyifanFibonacciPriorityQueueScenario implements Performanc
 		Random random = new Random(randomSeed);
 		
 		previous = new int[size];
-		generator.generateRandomGraph(size, arcs, random);
+		generator.generateRandomGraph(size, p, random);
 		priorityQueue = new PengyifanFibonacciPriorityQueue();
 		priorityObjectArray = new PengyifanDijkstraPriorityObject[size];
 		for (int i = 0; i < size; ++i) {

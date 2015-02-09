@@ -5,23 +5,23 @@ import java.util.Random;
 import dijkstra.graph.NeighbourArrayGraphGenerator;
 import dijkstra.performance.PerformanceScenario;
 import dijkstra.priority.PriorityQueueDijkstra;
-import dijkstra.priority.impl.GrowingWithTheWebDijkstraPriorityObject;
-import dijkstra.priority.impl.GrowingWithTheWebFibonacciPriorityQueue;
+import dijkstra.priority.impl.KeithschwarzDijkstraPriorityObject;
+import dijkstra.priority.impl.KeithschwarzFibonacciPriorityQueue;
 
-public class RandomGrowingWithTheWebFibonacciPriorityQueueScenario implements PerformanceScenario {
+public class RandomKeithschwarzFibonacciPriorityQueueScenario implements PerformanceScenario {
 	
 	NeighbourArrayGraphGenerator generator = new NeighbourArrayGraphGenerator();
 	
 	int[] previous;
-	GrowingWithTheWebDijkstraPriorityObject[] priorityObjectArray;
-	GrowingWithTheWebFibonacciPriorityQueue priorityQueue;
+	KeithschwarzDijkstraPriorityObject[] priorityObjectArray;
+	KeithschwarzFibonacciPriorityQueue priorityQueue;
 	Random random;
 	
 	int size;
 	double p;
 	int previosArrayBuilds;
 	
-	public RandomGrowingWithTheWebFibonacciPriorityQueueScenario(int size, double p, int previousArrayBuilds, Random random) {
+	public RandomKeithschwarzFibonacciPriorityQueueScenario(int size, double p, int previousArrayBuilds, Random random) {
 		this.size = size;
 		this.p = p;
 		this.previosArrayBuilds = previousArrayBuilds;
@@ -40,28 +40,26 @@ public class RandomGrowingWithTheWebFibonacciPriorityQueueScenario implements Pe
 	public void generateGraph() {
 		previous = new int[size];
 		generator.generateRandomGraph(size, p, random);
-		priorityQueue = new GrowingWithTheWebFibonacciPriorityQueue();
-		priorityObjectArray = new GrowingWithTheWebDijkstraPriorityObject[size];
+		priorityQueue = new KeithschwarzFibonacciPriorityQueue();
+		priorityObjectArray = new KeithschwarzDijkstraPriorityObject[size];
 		for (int i = 0; i < size; ++i) {
-			priorityObjectArray[i] = new GrowingWithTheWebDijkstraPriorityObject(i, 0.0);
+			priorityObjectArray[i] = new KeithschwarzDijkstraPriorityObject(i, 0.0);
 		}
 	}
 
 	@Override
 	public int[] testPrevious(int randomSeed) {
-		
+		Random random = new Random(randomSeed);
 		previous = new int[size];
 		generator.generateRandomGraph(size, p, random);
-		priorityQueue = new GrowingWithTheWebFibonacciPriorityQueue();
-		priorityObjectArray = new GrowingWithTheWebDijkstraPriorityObject[size];
+		priorityQueue = new KeithschwarzFibonacciPriorityQueue();
+		priorityObjectArray = new KeithschwarzDijkstraPriorityObject[size];
 		for (int i = 0; i < size; ++i) {
-			priorityObjectArray[i] = new GrowingWithTheWebDijkstraPriorityObject(i, 0.0);
+			priorityObjectArray[i] = new KeithschwarzDijkstraPriorityObject(i, 0.0);
 		}
-		
 		int origin = random.nextInt(size);
 //		System.out.println("origin: " + origin);
 		PriorityQueueDijkstra.createPreviousArray(generator.neighbours, generator.weights, origin, previous, priorityObjectArray, priorityQueue);
-		
 		return previous;
 	}
 }
