@@ -10,37 +10,13 @@ import dijkstra.performance.scenario.RandomNutchFibonacciPriorityQueueScenario;
 import dijkstra.performance.scenario.RandomTeneightyFibonacciPriorityQueueScenario;
 import dijkstra.performance.scenario.RandomTreeSetPriorityQueueScenario;
 
-public class DijkstraPerformanceMain {
-	
-	public static void main(String[] args) {
-		new DijkstraPerformanceMain().run();
-	}
-	
-	private int calculateArcNumber(int size, double p) {
+public class DijkstraPerformanceBase {
+		
+	protected int calculateArcNumber(int size, double p) {
 		return Math.max((int)Math.round(size * size * p) - (size - 1) * 2, (size - 1) * 2);
 	}
-	
-	private void run() {
 		
-		int n = 99;
-		
-		double[][] results = new double[n][];
-		for (int i = 0; i < n; ++i) {
-			results[i] = parameterizedMeasurement(10 + 10 * i, 0.1);
-		}
-		for (int i = 0; i < n; ++i) {
-			if (results[i] == null) {
-				continue;
-			}
-			for (int j = 0; j < results[i].length; ++j) {
-				System.out.print(results[i][j]);
-				System.out.print(",");
-			}
-			System.out.println();
-		}
-	}
-	
-	private double[] parameterizedMeasurement(int size, double p) {
+	protected double[] parameterizedMeasurement(int size, double p) {
 		
 		System.out.println("Size: " + size + ", p: " + p + ", #arcs: " + calculateArcNumber(size, p));
 		
