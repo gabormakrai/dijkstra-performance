@@ -22,3 +22,12 @@ Implementation of the TreeSet Priority Queue can be found here: [TreeSetPriority
 
 ### Fibonacci Heap Priority Queue implementation
 
+Instead of trying to implement myself the Fibonacci heap, I tried to find existing open-source implementations. After reading through many pages of the Google search "Fibonacci heap Java" I could find the following ones:
+
+* [Teneigty's implementation](https://code.google.com/p/java-heaps/source/browse/trunk/src/main/java/org/teneighty/heap/FibonacciHeap.java?r=39)
+* [Neo4j's implementation](https://github.com/neo4j/neo4j/blob/master/community/graph-algo/src/main/java/org/neo4j/graphalgo/impl/util/FibonacciHeap.java)
+* [Pengyifan's implementation](https://github.com/yfpeng/pengyifan-commons/tree/master/src/main/java/com/pengyifan/commons/collections/heap)
+* [GrowingTheWeb's implementation](http://www.growingwiththeweb.com/2014/06/fibonacci-heap.html)
+* [Keithschwarz's implementation](http://www.keithschwarz.com/interesting/code/?dir=fibonacci-heap)
+* [Nutch's implementation](https://gitorious.org/discovered/repo/source/1d47935e78072239bffc39c9436ade75f8e273b6:src/java/org/apache/nutch/util/FibonacciHeap.java)
+
