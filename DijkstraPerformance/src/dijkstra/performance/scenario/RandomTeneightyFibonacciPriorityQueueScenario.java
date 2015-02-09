@@ -17,16 +17,15 @@ public class RandomTeneightyFibonacciPriorityQueueScenario implements Performanc
 	TeneightyFibonacciPriorityQueue priorityQueue;
 	Random random;
 	
-	int randomSeed;
 	int size;
 	double p;
 	int previosArrayBuilds;
 	
-	public RandomTeneightyFibonacciPriorityQueueScenario(int size, double p, int previousArrayBuilds, int randomSeed) {
+	public RandomTeneightyFibonacciPriorityQueueScenario(int size, double p, int previousArrayBuilds, Random random) {
 		this.size = size;
 		this.p = p;
 		this.previosArrayBuilds = previousArrayBuilds;
-		this.randomSeed = randomSeed;
+		this.random = random;
 	}
 	
 	@Override
@@ -39,14 +38,28 @@ public class RandomTeneightyFibonacciPriorityQueueScenario implements Performanc
 	
 	@Override
 	public void generateGraph() {
-		random = new Random(randomSeed);
 		previous = new int[size];
 		generator.generateRandomGraph(size, p, random);
-		random = new Random(randomSeed);
 		priorityQueue = new TeneightyFibonacciPriorityQueue();
 		priorityObjectArray = new TeneightyDijkstraPriorityObject[size];
 		for (int i = 0; i < size; ++i) {
 			priorityObjectArray[i] = new TeneightyDijkstraPriorityObject(i, 0.0);
 		}
+	}
+
+	@Override
+	public int[] testPrevious(int randomSeed) {
+		Random random = new Random(randomSeed);
+		previous = new int[size];
+		generator.generateRandomGraph(size, p, random);
+		priorityQueue = new TeneightyFibonacciPriorityQueue();
+		priorityObjectArray = new TeneightyDijkstraPriorityObject[size];
+		for (int i = 0; i < size; ++i) {
+			priorityObjectArray[i] = new TeneightyDijkstraPriorityObject(i, 0.0);
+		}
+		int origin = random.nextInt(size);
+//		System.out.println("origin: " + origin);
+		PriorityQueueDijkstra.createPreviousArray(generator.neighbours, generator.weights, origin, previous, priorityObjectArray, priorityQueue);
+		return previous;
 	}
 }

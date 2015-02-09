@@ -5,6 +5,9 @@ import java.util.Random;
 import dijkstra.graph.NeighbourArrayGraphGenerator;
 
 public class GraphGeneratorDotOutputMain {
+	
+	// http://graphviz-dev.appspot.com/
+	
 	public static void main(String[] args) {
 		System.out.print("digraph graphname {");
 		NeighbourArrayGraphGenerator generator = new NeighbourArrayGraphGenerator();

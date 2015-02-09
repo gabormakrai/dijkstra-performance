@@ -14,16 +14,15 @@ public class RandomBaseScenario implements PerformanceScenario {
 	int[] previous;
 	Random random;
 	
-	int randomSeed;
 	int size;
 	double p;
 	int previosArrayBuilds;
 	
-	public RandomBaseScenario(int size, double p, int previousArrayBuilds, int randomSeed) {
+	public RandomBaseScenario(int size, double p, int previousArrayBuilds, Random random) {
 		this.size = size;
 		this.p = p;
 		this.previosArrayBuilds = previousArrayBuilds;
-		this.randomSeed = randomSeed;
+		this.random = random;
 	}
 	
 	@Override
@@ -36,10 +35,20 @@ public class RandomBaseScenario implements PerformanceScenario {
 	
 	@Override
 	public void generateGraph() {
-		random = new Random(randomSeed);
 		distance = new double[size];
 		previous = new int[size];
 		generator.generateRandomGraph(size, p, random);
-		random = new Random(randomSeed);
+	}
+
+	@Override
+	public int[] testPrevious(int randomSeed) {
+		Random random = new Random(randomSeed);
+		generator.generateRandomGraph(size, p, random);
+		int origin = random.nextInt(size);
+		distance = new double[size];
+		previous = new int[size];
+//		System.out.println("origin: " + origin);
+		BaseDijkstra.createPreviousArray(generator.neighbours, generator.weights, origin, distance, previous);
+		return previous;
 	}
 }

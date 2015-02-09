@@ -17,16 +17,15 @@ public class RandomGrowingWithTheWebFibonacciPriorityQueueScenario implements Pe
 	GrowingWithTheWebFibonacciPriorityQueue priorityQueue;
 	Random random;
 	
-	int randomSeed;
 	int size;
 	int arcs;
 	int previosArrayBuilds;
 	
-	public RandomGrowingWithTheWebFibonacciPriorityQueueScenario(int size, int arcs, int previousArrayBuilds, int randomSeed) {
+	public RandomGrowingWithTheWebFibonacciPriorityQueueScenario(int size, int arcs, int previousArrayBuilds, Random random) {
 		this.size = size;
 		this.arcs = arcs;
 		this.previosArrayBuilds = previousArrayBuilds;
-		this.randomSeed = randomSeed;
+		this.random = random;
 	}
 	
 	@Override
@@ -39,14 +38,30 @@ public class RandomGrowingWithTheWebFibonacciPriorityQueueScenario implements Pe
 	
 	@Override
 	public void generateGraph() {
-		random = new Random(randomSeed);
 		previous = new int[size];
 		generator.generateRandomGraph(size, arcs, random);
-		random = new Random(randomSeed);
 		priorityQueue = new GrowingWithTheWebFibonacciPriorityQueue();
 		priorityObjectArray = new GrowingWithTheWebDijkstraPriorityObject[size];
 		for (int i = 0; i < size; ++i) {
 			priorityObjectArray[i] = new GrowingWithTheWebDijkstraPriorityObject(i, 0.0);
 		}
+	}
+
+	@Override
+	public int[] testPrevious(int randomSeed) {
+		
+		previous = new int[size];
+		generator.generateRandomGraph(size, arcs, random);
+		priorityQueue = new GrowingWithTheWebFibonacciPriorityQueue();
+		priorityObjectArray = new GrowingWithTheWebDijkstraPriorityObject[size];
+		for (int i = 0; i < size; ++i) {
+			priorityObjectArray[i] = new GrowingWithTheWebDijkstraPriorityObject(i, 0.0);
+		}
+		
+		int origin = random.nextInt(size);
+//		System.out.println("origin: " + origin);
+		PriorityQueueDijkstra.createPreviousArray(generator.neighbours, generator.weights, origin, previous, priorityObjectArray, priorityQueue);
+		
+		return previous;
 	}
 }
