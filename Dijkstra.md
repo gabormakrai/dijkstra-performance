@@ -77,3 +77,4 @@ EXTRACT-MIN | θ(lgn) | O(lgn)
 DECREASE-KEY | θ(lgn) | θ(1)
 DELETE | θ(lgn) | O(lgn)
 
+The Fibonacci heap itself was developed based on the observation that usually there are multiple Decrease-Key operations related to one Extract-Min operation.
