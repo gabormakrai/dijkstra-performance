@@ -17,8 +17,8 @@ As described before, the framework has different implementations of the Dijkstra
 * Unfortunately there were two implementations of the Fibonacci heap which produced unexpected exceptions during the tests
   * Growing with the web's Fibonacci heap
   * Pengyifan's Fibonacci heap
-  
-For the first run, I was curious about the implementations runtime of different graph sizes
+
+For the first run, I was curious about the implementations' runtime on different graph sizes. The framework was executing the following file to find the right answer: [GraphSizeAnalysisMain](https://github.com/gabormakrai/dijkstra-performance/blob/master/DijkstraPerformance/src/dijkstra/main/GraphSizeAnalysisMain.java). It is measuring the runtime depends on different sizes (from n = 10 to n = 1000 in steps of 10) and connectivity (from p = 0.1 to p = 0.9 in steps of 0.2). The following figures contain the results:
 
 <table style="align: center;">
 <tr>
@@ -55,4 +55,6 @@ For the first run, I was curious about the implementations runtime of different 
 </td>
 </tr>
 </table>
+
+The absolute winner was the Priority Queue version with Teneight's Fibonacci heap and all the Fibonacci heap Priority Queue implementation beats the other two. It is also interesting to see that in a spare graph, the naive implementation was overperformed by all the others implementation, but in a well connected graph, the naive implementation beats Priority Queue with binary heap implementation.
 
