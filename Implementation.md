@@ -31,3 +31,10 @@ Instead of trying to implement myself the Fibonacci heap, I tried to find existi
 * [Keithschwarz's implementation](http://www.keithschwarz.com/interesting/code/?dir=fibonacci-heap)
 * [Nutch's implementation](https://gitorious.org/discovered/repo/source/1d47935e78072239bffc39c9436ade75f8e273b6:src/java/org/apache/nutch/util/FibonacciHeap.java)
 
+As mentione before, I created individual wrapper classes for the different implementation of Priority Queues:
+* [Teneigty's wrapper](https://github.com/gabormakrai/dijkstra-performance/blob/master/DijkstraPerformance/src/dijkstra/priority/impl/TeneightyFibonacciPriorityQueue.java)
+* [Neo4j's wrapper](https://github.com/gabormakrai/dijkstra-performance/blob/master/DijkstraPerformance/src/dijkstra/priority/impl/Neo4jFibonacciPrioityQueue.java)
+* [Pengyifan's wrapper](https://github.com/gabormakrai/dijkstra-performance/blob/master/DijkstraPerformance/src/dijkstra/priority/impl/PengyifanFibonacciPriorityQueue.java)
+* [GrowingTheWeb's wrapper](https://github.com/gabormakrai/dijkstra-performance/blob/master/DijkstraPerformance/src/dijkstra/priority/impl/GrowingWithTheWebFibonacciPriorityQueue.java)
+* [Keithschwarz's wrapper](https://github.com/gabormakrai/dijkstra-performance/blob/master/DijkstraPerformance/src/dijkstra/priority/impl/KeithschwarzFibonacciPriorityQueue.java)
+* [Nutch's wrapper](https://github.com/gabormakrai/dijkstra-performance/blob/master/DijkstraPerformance/src/dijkstra/priority/impl/NutchFibonacciPriorityQueue.java)
