@@ -6,7 +6,7 @@ In this framework, there are a couple of different implementations of the algori
 * Binary Tree Priority Queue implementation
 * Fibonacci Heap Priority Queue implementation
 
-Before I introduced the implementation details of the algorithms, I am introducing how the framework is implementing the graph. I coded the neighbourhood list approach where two nested arrays represent the actual graph: there is an int[][] which is storing the neighbour nodes for each node and an double[][] which is storing the corresponding arc/edge weights.
+Before I introduce the implementation details of the algorithms, I will introduce how the framework is implementing the graph. I coded the [neighbourhood list approach](http://en.wikipedia.org/wiki/Adjacency_list) where two nested arrays represent the actual graph: there is a int[][] which is storing the neighbour nodes for each node and a double[][] which is storing the corresponding arc/edge weights.
 
 ### Naive implementation
 
@@ -16,9 +16,7 @@ The actual implementation can be found here: [BaseDijsktra](https://github.com/g
 
 ### Binary Tree Priority Queue implementation
 
-As mentioned before, it is possible to use Priority Queues to speed up the algorithm. There is a built-in binary search tree ([TreeSet](http://docs.oracle.com/javase/7/docs/api/java/util/TreeSet.html), which is based on [TreeMap](http://docs.oracle.com/javase/7/docs/api/java/util/TreeMap.html) which is a red-back binary search tree) in Java and the framework uses this search tree for the Priority Queue.
-
-Implementation of the Dijkstra's algorithm uses Priority Queue can be found here: [PriorityQueueDijkstra](https://github.com/gabormakrai/dijkstra-performance/blob/master/DijkstraPerformance/src/dijkstra/priority/PriorityQueueDijkstra.java)
+As mentioned before, it is possible to use Priority Queues to speed up the algorithm. For this and the other Priority Queue style algorithms, I created a general code to test them. This version of the Dijkstra can be found here: [PriorityQueueDijkstra](https://github.com/gabormakrai/dijkstra-performance/blob/master/DijkstraPerformance/src/dijkstra/priority/PriorityQueueDijkstra.java) For every single PriorityQueue algorithm, there is a wrapper class which is using the heap algorithm inside to represent the Priority Queue. The interface for it can be found here: [PriorityQueue](https://github.com/gabormakrai/dijkstra-performance/blob/master/DijkstraPerformance/src/dijkstra/priority/PriorityQueue.java). There is a built-in binary search tree ([TreeSet](http://docs.oracle.com/javase/7/docs/api/java/util/TreeSet.html), which is based on [TreeMap](http://docs.oracle.com/javase/7/docs/api/java/util/TreeMap.html) which is a red-back binary search tree) in Java and the framework uses this search tree for the Priority Queue. 
 
 Implementation of the TreeSet Priority Queue can be found here: [TreeSetPriorityQueue](https://github.com/gabormakrai/dijkstra-performance/blob/master/DijkstraPerformance/src/dijkstra/priority/impl/TreeSetPriorityQueue.java)
 
