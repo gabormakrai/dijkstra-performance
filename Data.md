@@ -2,11 +2,29 @@ Data generation and measurement scenarios
 ===============================
 
 For the data generation, I have created a random graph generator. This generator created random directed graphs according the two parameters:
-* size of the graph in the terms of verticies/nodes in the graph
-* connectivity of the graph: how sparse is the graph
+* size of the graph in the terms of verticies/nodes in the graph (parameter n)
+* connectivity of the graph: how sparse is the graph (parameter p)
 * the connectivity is expressed by a 0.0 <= p <= 1.0 floating number where 0.0 means there is no edge/arc in the graph and 1.0 means it is a complet graph.
 
-Here is just a simple example of the graph generation method with different connectivity parameter: (online version of the [Graphviz](http://graphviz-dev.appspot.com/) was used to generate these graph using the output of this simple program: [GraphGeneratorDotOutputMain](https://github.com/gabormakrai/dijkstra-performance/blob/master/DijkstraPerformance/src/dijkstra/main/GraphGeneratorDotOutputMain.java))
+Here is just a simple example of the graph generation method with different connectivity parameter: (online version of the [Graphviz](http://graphviz-dev.appspot.com/) was used to generate these graph using the output of this simple program: [GraphGeneratorDotOutputMain](https://github.com/gabormakrai/dijkstra-performance/blob/master/DijkstraPerformance/src/dijkstra/main/GraphGeneratorDotOutputMain.java), [Output text file](https://github.com/gabormakrai/dijkstra-performance/blob/master/Result/graphgeneratordotoutput.txt))
+
+<table>
+<tr>
+<td><img src="https://raw.githubusercontent.com/gabormakrai/dijkstra-performance/master/Result/graph_10_01.png" height="200" width="218"/></td>
+<td><img src="https://raw.githubusercontent.com/gabormakrai/dijkstra-performance/master/Result/graph_10_03.png" height="200" width="218"/></td>
+</td>
+<td><img src="https://raw.githubusercontent.com/gabormakrai/dijkstra-performance/master/Result/graph_10_05.png" height="200" width="218"/></td>
+</td>
+<td><img src="https://raw.githubusercontent.com/gabormakrai/dijkstra-performance/master/Result/graph_10_09.png" height="200" width="218"/></td>
+</td>
+</tr>
+<tr>
+<td>n=10,p=0.1</td>
+<td>n=10,p=0.3</td>
+<td>n=10,p=0.5</td>
+<td>n=10,p=0.9</td>
+</tr>
+</table>
 
 
 The generation method has two phases:
