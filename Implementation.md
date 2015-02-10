@@ -1,10 +1,12 @@
-Implementation of Dijkstra's algorithm
+Implementation details
 ===============================
 
 In this framework, there are a couple of different implementations of the algorithm, but they can be classified into three different groups:
 * Naive implementation
 * Binary Tree Priority Queue implementation
 * Fibonacci Heap Priority Queue implementation
+
+Before I introduced the implementation details of the algorithms, I am introducing how the framework is implementing the graph. I coded the neighbourhood list approach where two nested arrays represent the actual graph: there is an int[][] which is storing the neighbour nodes for each node and an double[][] which is storing the corresponding arc/edge weights.
 
 ### Naive implementation
 
