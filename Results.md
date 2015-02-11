@@ -56,5 +56,5 @@ For the first run, I was curious about the implementations' runtime on different
 </tr>
 </table>
 
-The absolute winner was the Priority Queue version with Teneight's Fibonacci heap and all the Fibonacci heap Priority Queue implementation beats the other two. It is also interesting to see that in a spare graph, the naive implementation was overperformed by all the others implementation, but in a well connected graph, the naive implementation beats Priority Queue with binary heap implementation.
+The absolute winner was the Priority Queue version with Teneight's Fibonacci heap and all Fibonacci heap Priority Queue implementation beats the other two. It is also interesting to see that in a spare graph, the naive implementation was overperformed by all the others implementation, but in a well connected graph, the naive implementation beats Priority Queue with binary heap implementation.
 
