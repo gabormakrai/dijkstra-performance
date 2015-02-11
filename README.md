@@ -8,3 +8,4 @@ This project aims to measure the performance of different implementation of one 
 * [Data generation and measurement scenarios](https://github.com/gabormakrai/dijkstra-performance/blob/master/Data.md)
 * [Results](https://github.com/gabormakrai/dijkstra-performance/blob/master/Results.md)
 
+Parallel to this GitHub repository, I have created a post on my blog. Feel free to visit the post following this link: [https://gabormakrai.wordpress.com/2015/02/11/experimenting-with-dijkstras-algorithm/](https://gabormakrai.wordpress.com/2015/02/11/experimenting-with-dijkstras-algorithm/).
