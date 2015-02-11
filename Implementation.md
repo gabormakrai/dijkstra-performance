@@ -10,7 +10,7 @@ Before I introduce the implementation details of the algorithms, I will introduc
 
 ### Naive implementation
 
-It is obviously the slowest version (algorithmically), however the results of this version can be useful for validating the other implementation correctness. Also it is interesting to see how this simple version is performing against other advanced implementation. The simplicity of this implementation is giving the chance to the Java VM to optimize the code and also it is giving the opportunity to the hardware architecture for low-level optimization (for example banch prediction).
+It is obviously the slowest version (algorithmically), however the results of this version can be useful for validating the other implementation correctness. Also it is interesting to see how this simple version is performing against other advanced implementation. The simplicity of this implementation is giving the chance to the Java VM to optimize the code and also it is giving the opportunity to the hardware architecture for low-level optimization (for example branch prediction).
 
 The actual implementation can be found here: [BaseDijsktra](https://github.com/gabormakrai/dijkstra-performance/blob/master/DijkstraPerformance/src/dijkstra/base/BaseDijkstra.java)
 
@@ -31,7 +31,7 @@ Instead of trying to implement myself the Fibonacci heap, I tried to find existi
 * [Keithschwarz's implementation](http://www.keithschwarz.com/interesting/code/?dir=fibonacci-heap)
 * [Nutch's implementation](https://gitorious.org/discovered/repo/source/1d47935e78072239bffc39c9436ade75f8e273b6:src/java/org/apache/nutch/util/FibonacciHeap.java)
 
-As mentione before, I created individual wrapper classes for the different implementation of Priority Queues:
+As mentioned before, I created individual wrapper classes for the different implementation of Priority Queues:
 * [Teneigty's wrapper](https://github.com/gabormakrai/dijkstra-performance/blob/master/DijkstraPerformance/src/dijkstra/priority/impl/TeneightyFibonacciPriorityQueue.java)
 * [Neo4j's wrapper](https://github.com/gabormakrai/dijkstra-performance/blob/master/DijkstraPerformance/src/dijkstra/priority/impl/Neo4jFibonacciPrioityQueue.java)
 * [Pengyifan's wrapper](https://github.com/gabormakrai/dijkstra-performance/blob/master/DijkstraPerformance/src/dijkstra/priority/impl/PengyifanFibonacciPriorityQueue.java)
