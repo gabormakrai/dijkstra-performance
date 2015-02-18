@@ -10,13 +10,4 @@ This project aims to measure the performance of different implementation of one 
 
 Parallel to this GitHub repository, I have created a post on my blog. Feel free to visit the post following this link: [https://gabormakrai.wordpress.com/2015/02/11/experimenting-with-dijkstras-algorithm/](https://gabormakrai.wordpress.com/2015/02/11/experimenting-with-dijkstras-algorithm/).
 
-<script>
-  (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
-  (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
-  m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
-  })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
-
-  ga('create', 'UA-59643671-2', 'auto');
-  ga('send', 'pageview');
-
-</script>
+<img src="http://www-users.cs.york.ac.uk/~makrai/stat/stat.php?site=github_dijkstra-performance_readme" width="0" height="0"/>
